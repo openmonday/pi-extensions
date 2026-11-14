@@ -1,0 +1,37 @@
+name: Build pi-trans panel
+on:
+  workflow_dispatch:
+  push:
+    paths: ["pi-trans/panel/**", ".github/workflows/pi-trans-panel.yml"]
+jobs:
+  build:
+    strategy:
+      matrix:
+        include:
+          - os: macos-latest
+            target: aarch64-apple-darwin
+            platform: darwin-arm64
+            executable: pi-trans-panel
+          - os: macos-latest
+            target: x86_64-apple-darwin
+            platform: darwin-x64
+            executable: pi-trans-panel
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            platform: win32-x64
+            executable: pi-trans-panel.exe
+          - os: windows-latest
+            target: aarch64-pc-windows-msvc
+            platform: win32-arm64
+            executable: pi-trans-panel.exe
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - run: cargo build --release --locked --manifest-path pi-trans/panel/Cargo.toml --target ${{ matrix.target }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: pi-trans-panel-${{ matrix.platform }}
+          path: pi-trans/panel/target/${{ matrix.target }}/release/${{ matrix.executable }}
