@@ -85,12 +85,23 @@ test("model is rejected before any request with an ambiguous or unsupported expl
 		for (const provider of [["openai", "xai"], "openai,xai"]) {
 			await assert.rejects(tool.execute("x", { query: "q", model: "m", provider }), /provider lists are ambiguous/);
 		}
-		await assert.rejects(tool.execute("x", { query: "q", provider: "openai", model: "  " }), /non-empty model ID/);
+		await assert.rejects(tool.execute("x", { query: "q", provider: "openai", model: 123 }), /non-empty model ID/);
 		const curated = await tool.execute("x", { query: "q", provider: "openai", model: "m", workflow: "summary-review" }, undefined, undefined, {});
 		assert.match(curated.content[0].text, /model cannot be used with workflow "summary-review"/);
 		assert.equal(curated.isError, true);
 	`);
 	assert.deepEqual(requests, []);
+});
+
+test("omitted and blank models use the default Exa routing", () => {
+	const requests = run({ exaApiKey: "exa-key" }, `
+		for (const model of [undefined, "", "  "]) {
+			const result = await tool.execute("x", { query: "q", model });
+			assert.notEqual(result.isError, true, result.content[0].text);
+		}
+	`);
+	assert.equal(requests.length, 3);
+	assert.ok(requests.every(request => request.url.includes("exa.ai") && request.body.model === undefined));
 });
 
 test("an unqualified model does not block the configured Exa search", () => {

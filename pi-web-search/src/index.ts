@@ -1493,7 +1493,7 @@ export default function (pi: ExtensionAPI) {
 					};
 				}
 
-				if (shouldCurate && params.model !== undefined) {
+				if (shouldCurate && typeof params.model === "string" && params.model.trim()) {
 					return {
 						content: [{ type: "text", text: "Error: model cannot be used with workflow \"summary-review\". Pass workflow \"none\" or \"auto-summary\" to search with a specific model." }],
 						details: { error: "model is not supported with summary-review" },
