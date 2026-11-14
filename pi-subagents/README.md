@@ -1,4 +1,4 @@
-# @gotgenes/pi-subagents
+# pi-subagents
 
 A [pi](https://pi.dev) extension that gives pi **a focused, in-process sub-agent core** — autonomous agents that run inside the same pi runtime (no spawned subprocesses), plus a typed API and lifecycle events other extensions build on.
 Spawn specialized agents that run in isolated sessions — each with its own tools, system prompt, model, and thinking level.
@@ -27,11 +27,13 @@ Run them in foreground or background, steer them mid-run, resume completed sessi
 
 ## Install
 
+From the repository root:
+
 ```bash
-pi install npm:@gotgenes/pi-subagents
+pi install ./pi-subagents
 ```
 
-Or load directly for development:
+Or load directly for development from `pi-subagents/`:
 
 ```bash
 pi -e ./src/index.ts
@@ -325,12 +327,12 @@ When `@gotgenes/pi-permission-system` is not installed, the lifecycle events hav
 
 This package exposes two public subpath exports for companion extensions to import from the published tarball.
 
-### `@gotgenes/pi-subagents` — cross-extension service contract
+### `pi-subagents` — cross-extension service contract
 
 Access the subagent service from another extension at runtime:
 
 ```typescript
-const { getSubagentsService } = await import("@gotgenes/pi-subagents");
+const { getSubagentsService } = await import("pi-subagents");
 const svc = getSubagentsService();
 svc?.spawn("Explore", "Check for stale TODOs");
 ```
@@ -411,12 +413,12 @@ Pass `signal` to cancel the resumed turn loop.
 It is wired through the record's own lever, so it ends the resume exactly as `abort(id)` does — either cancel reaches the same run, and the record reads `stopped`.
 A signal that has already fired stops the resume before its first turn.
 
-### `@gotgenes/pi-subagents/settings` — layered config loader
+### `pi-subagents/settings` — layered config loader
 
 Extensions that store configuration in JSON files can use the shared layered loader, which reads a global file (`<agentDir>/<filename>`) and a project file (`<cwd>/.pi/<filename>`) and merges them — project wins on conflicts, missing files are silent, malformed files warn and fall back:
 
 ```typescript
-import { loadLayeredSettings, type LayeredSettingsSource } from "@gotgenes/pi-subagents/settings";
+import { loadLayeredSettings, type LayeredSettingsSource } from "pi-subagents/settings";
 
 interface MyConfig { enabled?: boolean; limit?: number }
 
@@ -497,7 +499,7 @@ This extension is a minimal, composable core: it owns agent spawning, execution,
 
 ## Configuration
 
-`@gotgenes/pi-subagents` has two configuration surfaces: **agent definition files** that describe an agent type, and a **`subagents.json`** settings file that tunes the runtime.
+`pi-subagents` has two configuration surfaces: **agent definition files** that describe an agent type, and a **`subagents.json`** settings file that tunes the runtime.
 Neither is required — every field has a default.
 
 ### Default Agent Type

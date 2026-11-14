@@ -114,3 +114,7 @@ src/
 └── core/             # Markdown segmentation, placeholders, translator, cache
 panel/                # Rust Wry/Tao helper and shared HTML/CSS card UI
 ```
+
+## License
+
+[MIT](LICENSE).

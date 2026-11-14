@@ -1,6 +1,6 @@
 {
-  "name": "@gotgenes/pi-subagents",
-  "version": "25.0.5",
+  "name": "pi-subagents",
+  "version": "0.1.0",
   "type": "module",
   "exports": {
     ".": {
@@ -20,19 +20,16 @@
     "#src/*": "./src/*",
     "#test/*": "./test/*"
   },
-  "description": "A focused, in-process sub-agent core for pi \u2014 autonomous agents plus a typed API and lifecycle events other extensions build on. Friendly fork of @tintinweb/pi-subagents.",
-  "author": {
-    "name": "Chris Lasher"
-  },
+  "description": "In-process subagents for Pi, with a typed API and lifecycle events for extension integration.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gotgenes/pi-packages.git",
-    "directory": "packages/pi-subagents"
+    "url": "git+https://github.com/openmonday/pi-extensions.git",
+    "directory": "pi-subagents"
   },
-  "homepage": "https://github.com/gotgenes/pi-packages/tree/main/packages/pi-subagents#readme",
+  "homepage": "https://github.com/openmonday/pi-extensions/tree/main/pi-subagents#readme",
   "bugs": {
-    "url": "https://github.com/gotgenes/pi-packages/issues"
+    "url": "https://github.com/openmonday/pi-extensions/issues"
   },
   "keywords": [
     "pi-package",

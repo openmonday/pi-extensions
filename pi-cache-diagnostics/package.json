@@ -1,7 +1,14 @@
 {
   "name": "pi-cache-diagnostics",
   "version": "0.1.0",
+  "description": "Prompt cache diagnostics for the Pi coding agent",
+  "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openmonday/pi-extensions.git",
+    "directory": "pi-cache-diagnostics"
+  },
   "type": "module",
   "keywords": [
     "pi-package"

@@ -155,3 +155,7 @@ provider requests. They cover append/mutation, string content, moving markers,
 config changes, privacy, observer behavior, private permissions and in-flight
 disable. Production loads TypeScript through Pi's own loader, so no build
 artifact is required.
+
+## License
+
+[MIT](LICENSE).

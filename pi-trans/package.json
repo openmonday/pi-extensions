@@ -2,6 +2,7 @@
   "name": "pi-trans",
   "version": "0.1.0",
   "description": "Display-only bilingual translation for the pi coding agent",
+  "license": "MIT",
   "keywords": [
     "pi-package",
     "translation",
@@ -9,7 +10,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/openmonday/pi-trans.git"
+    "url": "git+https://github.com/openmonday/pi-extensions.git",
+    "directory": "pi-trans"
   },
   "type": "module",
   "engines": {

@@ -1,13 +1,12 @@
 {
-  "name": "@upstash/context7-pi",
-  "version": "0.1.3",
-  "description": "Official Context7 extension for pi.dev — adds resolve-library-id and query-docs tools to the pi coding agent",
+  "name": "pi-context7",
+  "version": "0.1.0",
+  "description": "Context7 extension for pi.dev — adds resolve-library-id and query-docs tools to the pi coding agent",
   "type": "module",
   "pi": {
     "extensions": [
       "./src/index.ts"
-    ],
-    "image": "https://github.com/upstash/context7/blob/master/public/cover.png?raw=true"
+    ]
   },
   "files": [
     "src",
@@ -20,8 +19,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/upstash/context7.git",
-    "directory": "packages/pi"
+    "url": "git+https://github.com/openmonday/pi-extensions.git",
+    "directory": "pi-context7"
   },
   "keywords": [
     "pi-package",
@@ -31,12 +30,11 @@
     "ai",
     "coding-agent"
   ],
-  "author": "Upstash",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/upstash/context7/issues"
+    "url": "https://github.com/openmonday/pi-extensions/issues"
   },
-  "homepage": "https://github.com/upstash/context7#readme",
+  "homepage": "https://github.com/openmonday/pi-extensions/tree/main/pi-context7#readme",
   "publishConfig": {
     "access": "public"
   },
