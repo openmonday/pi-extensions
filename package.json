@@ -4,13 +4,13 @@
   "private": true,
   "type": "module",
   "keywords": ["pi-package"],
-  "workspaces": ["pi-context7", "pi-subagents", "pi-trans", "pi-web-access", "pi-cache-diagnostics"],
+  "workspaces": ["pi-context7", "pi-subagents", "pi-trans", "pi-web-search", "pi-cache-diagnostics"],
   "pi": {
     "extensions": [
       "./pi-context7/src/index.ts",
       "./pi-subagents/src/index.ts",
       "./pi-trans/src/index.ts",
-      "./pi-web-access/src/index.ts",
+      "./pi-web-search/src/index.ts",
       "./pi-cache-diagnostics/src/index.ts"
     ]
   }
