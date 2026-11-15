@@ -1,5 +1,6 @@
 import { vi } from "vitest";
 import { AgentTypeRegistry } from "#src/config/agent-types";
+import type { AgentConfig } from "#src/types";
 import { fixtureAgents } from "#test/helpers/fixture-agents";
 import type { ParentSnapshot } from "#src/lifecycle/parent-snapshot";
 import type { Subagent } from "#src/lifecycle/subagent";
@@ -100,7 +101,7 @@ export function mockResumeRefusal(deps: AgentToolFixture, reason: ResumeRefusalR
 export function createToolDepsWithDisabledBuiltInAgents(...names: string[]): AgentToolFixture {
 	const registry = new AgentTypeRegistry(
 		() =>
-			new Map([
+			new Map<string, AgentConfig>([
 				...fixtureAgents(),
 				...names.map((name) => [
 					name,

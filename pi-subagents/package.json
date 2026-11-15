@@ -52,17 +52,18 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.11",
-    "@earendil-works/pi-ai": "1.0.0",
-    "@earendil-works/pi-coding-agent": "1.0.0",
-    "@earendil-works/pi-tui": "1.0.0",
-    "@types/node": "^22.15.3",
-    "rollup": "^4.63.1",
+    "@biomejs/biome": "^2.6.8",
+    "@earendil-works/pi-ai": "1.5.2",
+    "@earendil-works/pi-coding-agent": "1.5.2",
+    "@earendil-works/pi-tui": "1.5.2",
+    "@types/node": "^26.6.6",
+    "@typescript/typescript6": "^6.0.2",
+    "rollup": "^4.68.3",
     "rollup-plugin-dts": "^6.5.1",
-    "rumdl": "0.2.24",
-    "typebox": "^1.3.7",
-    "typescript": "^6.0.3",
-    "vitest": "^4.1.11"
+    "rumdl": "0.3.4",
+    "typebox": "^1.4.7",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0"
   },
   "pi": {
     "extensions": [
